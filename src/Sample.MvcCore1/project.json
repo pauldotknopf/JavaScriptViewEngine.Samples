@@ -5,7 +5,9 @@
       "type": "platform"
     },
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-final"
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final",
+    "JavaScriptViewEngine.MvcCore1": "1.0.0-beta-2"
   },
 
   "tools": {

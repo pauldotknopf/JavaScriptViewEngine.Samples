@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Sample.Mvc6
+namespace Sample.MvcCore1
 {
     public class Program
     {
