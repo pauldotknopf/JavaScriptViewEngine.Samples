@@ -28,10 +28,10 @@ namespace Sample.MvcCore1
                 options.GetArea = (area) => (area == "default") ? "server" : area;
             });
             services.Configure<RenderPoolOptions>(options => {
-                options.WatchPath = _env.WebRootPath;
+                options.WatchPath = Path.Combine(_env.WebRootPath, "dist");
                 options.WatchFiles = new List<string>
                 {
-                    Path.Combine(options.WatchPath, "default.js")
+                    Path.Combine(options.WatchPath, "server.js")
                 };
             });
             services.AddMvc();
