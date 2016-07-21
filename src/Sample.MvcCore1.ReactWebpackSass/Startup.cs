@@ -21,18 +21,21 @@ namespace Sample.MvcCore1
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddJsEngine();
-            services.Configure<NodeRenderEngineOptions>(options =>
+            services.AddJsEngine(builder =>
             {
-                options.ProjectDirectory = Path.Combine(_env.WebRootPath, "dist");
-                options.GetArea = (area) => (area == "default") ? "server" : area;
-            });
-            services.Configure<RenderPoolOptions>(options => {
-                options.WatchPath = Path.Combine(_env.WebRootPath, "dist");
-                options.WatchFiles = new List<string>
+                builder.UsePooledEngineFactory(poolOptions =>
                 {
-                    Path.Combine(options.WatchPath, "server.js")
-                };
+                    poolOptions.WatchPath = Path.Combine(_env.WebRootPath, "dist");
+                    poolOptions.WatchFiles = new List<string>
+                    {
+                        Path.Combine(poolOptions.WatchPath, "server.js")
+                    };
+                });
+                builder.UseNodeRenderEngine(nodeOptions =>
+                {
+                    nodeOptions.ProjectDirectory = Path.Combine(_env.WebRootPath, "dist");
+                    nodeOptions.GetModuleName = (path, model, bag, values, area, type) => "server";
+                });
             });
             services.AddMvc();
         }
