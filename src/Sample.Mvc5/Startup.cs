@@ -10,15 +10,8 @@ namespace Sample.Mvc5
     {
         public void Configuration(IAppBuilder app)
         {
-            var renderPoolOptions = new Options<RenderPoolOptions>(new RenderPoolOptions
-            {
-            });
-            var nodeRenderOptions = new Options<NodeRenderEngineOptions>(new NodeRenderEngineOptions
-            {
-            });
-            var renderEngineBuilder = new NodeRenderEngineBuilder(nodeRenderOptions);
-            var renderEnginePool = new RenderEnginePool(renderPoolOptions, renderEngineBuilder, new FileWatcher());
-            app.UseJsEngine(new RenderEngineFactory(renderEnginePool));
+            var nodeRenderOptions = new Options<NodeRenderEngineOptions>(new NodeRenderEngineOptions());
+            app.UseJsEngine(new SingletonRenderEngineFactory(new NodeRenderEngineBuilder(nodeRenderOptions)));
         }
     }
 }
