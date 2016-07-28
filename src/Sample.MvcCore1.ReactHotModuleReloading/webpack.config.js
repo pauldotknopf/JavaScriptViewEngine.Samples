@@ -5,7 +5,7 @@ module.exports = {
     devtool: 'eval',
     entry: [
       'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:3000',
+      'webpack-hot-middleware/client?path=/__webpack_hmr',
       'webpack/hot/only-dev-server',
       './App/index'
     ],

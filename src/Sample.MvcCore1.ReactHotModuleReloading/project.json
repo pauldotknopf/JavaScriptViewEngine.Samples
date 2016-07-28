@@ -8,7 +8,8 @@
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
     "Microsoft.AspNetCore.Mvc": "1.0.0",
     "JavaScriptViewEngine.MvcCore1": "1.3.4",
-    "Microsoft.AspNetCore.StaticFiles": "1.0.0"
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0",
+    "Microsoft.AspNetCore.Proxy": "0.1.0"
   },
 
   "tools": {
