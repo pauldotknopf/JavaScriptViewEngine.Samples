@@ -38,7 +38,7 @@ namespace Sample.MvcCore1.ReactHotModuleReloading
                 builder.UseNodeRenderEngine(options =>
                 {
                     // in the "Node" directory, always invoke "server.js" to render your content.
-                    options.ProjectDirectory = Path.Combine(_env.ContentRootPath, "Node");
+                    options.ProjectDirectory = Path.Combine(_env.ContentRootPath, "App", "dist");
                     options.GetModuleName = (path, model, bag, values, area, type) => "server";
                 });
                 builder.UseSingletonEngineFactory();
@@ -49,6 +49,8 @@ namespace Sample.MvcCore1.ReactHotModuleReloading
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UseStaticFiles();
+            
             app.UseJsEngine(); // this needs to be before MVC
 
             app.UseMvc(routes =>
