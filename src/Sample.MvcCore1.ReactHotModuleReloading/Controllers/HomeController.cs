@@ -10,26 +10,26 @@ namespace Sample.MvcCore1.ReactHotModuleReloading.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View("js-{auto}");
         }
 
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
 
-            return View();
+            return View("js-{auto}");
         }
 
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
 
-            return View();
+            return View("js-{auto}");
         }
 
         public IActionResult Error()
         {
-            return View();
+            return View("js-{auto}");
         }
     }
 }

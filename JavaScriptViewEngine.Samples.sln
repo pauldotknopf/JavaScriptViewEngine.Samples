@@ -18,6 +18,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Sample.MvcCore1.ReactWebpac
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Sample.MvcCore1.HotInstance", "src\Sample.MvcCore1.HotInstance\Sample.MvcCore1.HotInstance.xproj", "{EBE7221B-B96B-4745-983D-5564D8A8A2CC}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Sample.MvcCore1.ReactHotModuleReloading", "src\Sample.MvcCore1.ReactHotModuleReloading\Sample.MvcCore1.ReactHotModuleReloading.xproj", "{9CB0C259-E767-4F6B-A7F3-4F73E2DF4FE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{EBE7221B-B96B-4745-983D-5564D8A8A2CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBE7221B-B96B-4745-983D-5564D8A8A2CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBE7221B-B96B-4745-983D-5564D8A8A2CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CB0C259-E767-4F6B-A7F3-4F73E2DF4FE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CB0C259-E767-4F6B-A7F3-4F73E2DF4FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CB0C259-E767-4F6B-A7F3-4F73E2DF4FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB0C259-E767-4F6B-A7F3-4F73E2DF4FE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,5 +55,6 @@ Global
 		{206BD84D-25C8-4A4F-A712-5EFC0C28924B} = {6DD54F77-AD2D-48DC-B623-B559D88375AC}
 		{D5DF54B5-7815-4C46-8879-F895E1383ADE} = {6DD54F77-AD2D-48DC-B623-B559D88375AC}
 		{EBE7221B-B96B-4745-983D-5564D8A8A2CC} = {6DD54F77-AD2D-48DC-B623-B559D88375AC}
+		{9CB0C259-E767-4F6B-A7F3-4F73E2DF4FE1} = {6DD54F77-AD2D-48DC-B623-B559D88375AC}
 	EndGlobalSection
 EndGlobal

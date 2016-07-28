@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using JavaScriptViewEngine;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -12,8 +14,11 @@ namespace Sample.MvcCore1.ReactHotModuleReloading
 {
     public class Startup
     {
+        private readonly IHostingEnvironment _env;
+
         public Startup(IHostingEnvironment env)
         {
+            _env = env;
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -28,26 +33,23 @@ namespace Sample.MvcCore1.ReactHotModuleReloading
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddJsEngine(builder =>
+            {
+                builder.UseNodeRenderEngine(options =>
+                {
+                    // in the "Node" directory, always invoke "server.js" to render your content.
+                    options.ProjectDirectory = Path.Combine(_env.ContentRootPath, "Node");
+                    options.GetModuleName = (path, model, bag, values, area, type) => "server";
+                });
+                builder.UseSingletonEngineFactory();
+            });
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-
-            app.UseStaticFiles();
+            app.UseJsEngine(); // this needs to be before MVC
 
             app.UseMvc(routes =>
             {
