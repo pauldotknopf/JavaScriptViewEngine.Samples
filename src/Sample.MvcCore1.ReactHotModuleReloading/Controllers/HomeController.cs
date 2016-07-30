@@ -10,7 +10,7 @@ namespace Sample.MvcCore1.ReactHotModuleReloading.Controllers
     {
         public IActionResult Index()
         {
-            return Redirect("/index.html");
+            return View("js-{auto}");
         }
     }
 }
